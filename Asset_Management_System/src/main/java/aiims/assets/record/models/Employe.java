@@ -1,4 +1,4 @@
-package aiims.assets.record.entity;
+package aiims.assets.record.models;
 
 import java.util.Date;
 
@@ -14,7 +14,7 @@ public class Employe {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private long id;
 
 	private String department;
 	private String username;
@@ -82,7 +82,7 @@ public class Employe {
 		InvaledAttemts = invaledAttemts;
 	}
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+</head>
+<body>
+<section>
+			<div class="container p-3">
+				<div class="row">
+					<div class="col-md-6 offset-md-3">
+						
+
+						<div class="card-body">
+							
+							<table>
+								<tr>
+							<form class="form-inline" action="add_department" method="post">
+								<div class="mb-3">
+									
+								<td><input type="text" name="department" class="form-control" placeholder="Add Department"></td>
+							
+								<td><button class="btn btn-primary">Submit</button></td>
+							</div>
+							
+							</form>
+							</tr>
+							</table>
+							
+						</div>
+						
+					</div>
+					
+				</div>
+			</div>
+		
+</section>
+
+</body>
+</html>

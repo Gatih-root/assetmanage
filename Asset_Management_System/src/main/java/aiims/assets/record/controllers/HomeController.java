@@ -1,4 +1,4 @@
-package aiims.assets.record.controller;
+package aiims.assets.record.controllers;
 
 import java.security.Principal;
 
@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.fasterxml.jackson.annotation.JsonCreator.Mode;
 
-import aiims.assets.record.entity.Employe;
-import aiims.assets.record.repository.UserRepo;
-import aiims.assets.record.service.UserService;
+import aiims.assets.record.models.Employe;
+import aiims.assets.record.repositories.UserRepo;
+import aiims.assets.record.services.UserService;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
@@ -29,7 +29,8 @@ public class HomeController {
 	public void commonUser(Principal p, Model m) {
 		if (p != null) {
 			String email = p.getName();
-			Employe employe = userRepo.findByEmail(email);
+			String userid = p.getName();
+			Employe employe = userRepo.findByUserid(userid);
 			m.addAttribute("user", employe);
 		}
 
@@ -37,7 +38,7 @@ public class HomeController {
 
 	@GetMapping("/")
 	public String index() {
-		return "index";
+		return "login";
 	}
 
 //	@GetMapping("/register")

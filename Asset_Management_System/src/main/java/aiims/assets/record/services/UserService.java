@@ -1,11 +1,17 @@
-package aiims.assets.record.service;
+package aiims.assets.record.services;
 
-import aiims.assets.record.entity.Employe;
+import java.util.List;
+
+import aiims.assets.record.models.Employe;
 
 public interface UserService {
 
 	public Employe saveUser(Employe employe);
+	
 
 	public void removeSessionMessage();
+
+
+	List<Employe> getAllEmploye();
 
 }

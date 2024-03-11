@@ -1,5 +1,6 @@
-package aiims.assets.record.controller;
+package aiims.assets.record.controllers;
 
+import java.util.*;
 import java.security.Principal;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,9 +11,15 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import aiims.assets.record.entity.Employe;
-import aiims.assets.record.repository.UserRepo;
-import aiims.assets.record.service.UserService;
+import aiims.assets.record.models.ComputerAsset;
+import aiims.assets.record.models.Employe;
+import aiims.assets.record.models.PrinterAssets;
+import aiims.assets.record.models.UPSAssets;
+import aiims.assets.record.repositories.UserRepo;
+import aiims.assets.record.services.ComputerAssetService;
+import aiims.assets.record.services.PrinterAssetsService;
+import aiims.assets.record.services.UPSAssetsService;
+import aiims.assets.record.services.UserService;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
@@ -23,12 +30,22 @@ public class AdminController {
 
 	@Autowired
 	private UserRepo userRepo;
+	
+	@Autowired
+    private ComputerAssetService computerAssetService;
+
+    @Autowired
+    private UPSAssetsService upsAssetService;
+
+    @Autowired
+    private PrinterAssetsService printerAssetService;
 
 	@ModelAttribute
 	public void commonUser(Principal p, Model m) {
 		if (p != null) {
 			String email = p.getName();
-			Employe employe = userRepo.findByEmail(email);
+			String userid = p.getName();
+			Employe employe = userRepo.findByUserid(userid);
 			m.addAttribute("user", employe);
 		}
 	}
@@ -58,4 +75,33 @@ public class AdminController {
 		}
 		return "redirect:/register";
 	}
+	
+	
+	//Assets  Endpoints
+	
+	
+	
+	@GetMapping("/computer-assets")
+    public String getAllComputerAssets(Model model) {
+        List<ComputerAsset> computerAssets = computerAssetService.getAllAssets();
+        model.addAttribute("computerAssets", computerAssets);
+        return "computer-assets";
+    }
+
+    @GetMapping("/ups-assets")
+    public String getAllUPSAssets(Model model) {
+        List<UPSAssets> upsAssets = upsAssetService.getAllAssets();
+        model.addAttribute("upsAssets", upsAssets);
+        return "ups-assets";
+    }
+
+    @GetMapping("/printer-assets")
+    public String getAllPrinterAssets(Model model) {
+        List<PrinterAssets> printerAssets = printerAssetService.getAllAssets();
+        model.addAttribute("printerAssets", printerAssets);
+        return "printer-assets";
+    }
+
+    // Add more endpoints as needed for other types of assets
+
 }

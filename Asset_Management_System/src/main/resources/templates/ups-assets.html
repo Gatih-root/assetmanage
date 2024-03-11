@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>UPS Assets</title>
+</head>
+<body>
+    <h1>UPS Assets</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <!-- Add more columns as needed -->
+        </tr>
+       <tr th:each="a : ${upsAssets}">
+    <td th:text="${a.id}"></td>
+    <td th:text="${a.ups_name}"></td>
+    <!-- Other columns here -->
+        </tr>
+    </table>
+</body>
+</html>

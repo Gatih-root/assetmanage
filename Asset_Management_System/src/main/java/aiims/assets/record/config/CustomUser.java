@@ -7,7 +7,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import aiims.assets.record.entity.Employe;
+import aiims.assets.record.models.Employe;
 
 public class CustomUser implements UserDetails {
 

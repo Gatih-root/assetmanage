@@ -1,4 +1,6 @@
-package aiims.assets.record.service;
+package aiims.assets.record.services;
+
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -6,8 +8,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import aiims.assets.record.entity.Employe;
-import aiims.assets.record.repository.UserRepo;
+import aiims.assets.record.models.Departments;
+import aiims.assets.record.models.Employe;
+import aiims.assets.record.repositories.UserRepo;
 import jakarta.servlet.http.HttpSession;
 
 @Service
@@ -38,5 +41,8 @@ public class UserServiceImpl implements UserService {
 
 		session.removeAttribute("msg");
 	}
+	 public List<Employe> getAllEmploye() {
+	        return userRepo.findAll();
+	    }
 
 }
