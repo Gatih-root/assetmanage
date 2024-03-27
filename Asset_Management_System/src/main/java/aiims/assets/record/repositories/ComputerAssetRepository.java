@@ -11,4 +11,6 @@ public interface ComputerAssetRepository extends JpaRepository<ComputerAsset, Lo
 	   public List<ComputerAsset> findByDepartmentAndType(String department,String type);
 	   public Optional<ComputerAsset> findByDepartmentAndId(String department,Long id);
 	   public List<ComputerAsset> findByType(String type);
+	   public List<ComputerAsset> findByDepartment(String department);
+	  
 }

@@ -10,7 +10,10 @@ import aiims.assets.record.models.PrinterAssets;
 
 @Repository
 public interface PrinterAssetsRepository extends JpaRepository<PrinterAssets, Long> {
-	 public List<PrinterAssets> findByDepartmentAndType(String department,String type);
+	   public List<PrinterAssets> findByDepartment(String department);
+	   public List<PrinterAssets> findByDepartmentAndType(String department,String type);
 	   public Optional<PrinterAssets> findByDepartmentAndId(String department,Long id);
 	   public List<PrinterAssets> findByType(String type);
+	  
+	
 }

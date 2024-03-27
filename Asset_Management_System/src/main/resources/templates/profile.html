@@ -10,13 +10,11 @@
 
 
 	<section class="text-center">
-		<h1>User Profile Page</h1>
-
-		<h4>Name: [[${user.name}]]</h4>
-		<h4>Email: [[${user.email}]]</h4>
-		<h4>Mob No: [[${user.mobileNo}]]</h4>
-		<h4>Role: [[${user.role}]]</h4>
-		<a href="/logout">Logout</a>
+		 <h1>User Profile</h1>
+    <div>
+        <p>User ID: <span th:text="${userid}"></span></p>
+        <p>Department: <span th:text="${department}"></span></p>
+    </div>
 	</section>
 
 </body>

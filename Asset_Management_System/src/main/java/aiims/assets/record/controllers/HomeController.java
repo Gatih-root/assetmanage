@@ -1,6 +1,7 @@
 package aiims.assets.record.controllers;
 
 import java.security.Principal;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,7 +31,7 @@ public class HomeController {
 		if (p != null) {
 			String email = p.getName();
 			String userid = p.getName();
-			Employe employe = userRepo.findByUserid(userid);
+			Optional<Employe> employe = userRepo.findByUserid(userid);
 			m.addAttribute("user", employe);
 		}
 

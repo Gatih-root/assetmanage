@@ -1,5 +1,7 @@
 package aiims.assets.record.models;
 
+import java.util.Date;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,38 +20,51 @@ import lombok.Setter;
 public class UPSAssets {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+	private  long id;
     
-    @Column(nullable = true)
+   
     private String ups_name; 
 
-    @Column(nullable = true)
+   
     private String type;
 
-    @Column(nullable = true)
+    
     private String department;
 
-    @Column(nullable = true)
+    
     private String floorNo;
 
-    @Column(nullable = true)
+   
     private String room;
 
-    @Column(nullable = true)
+    
     private String batterytype;
 
-    @Column(nullable = true)
+    
     private String serialNumber;
 
-    @Column(nullable = true)
+    private String username;
+    
     private String capacity;
+    
+//    private Date yearOfPurchase;
+    
+    private String yearOfPurchase;
 
-	public Long getId() {
+	public String getYearOfPurchase() {
+		return yearOfPurchase;
+	}
+
+	public void setYearOfPurchase(String yearOfPurchase) {
+		this.yearOfPurchase = yearOfPurchase;
+	}
+
+	public long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -115,6 +130,22 @@ public class UPSAssets {
 
 	public void setCapacity(String capacity) {
 		this.capacity = capacity;
+	}
+
+//	public Date getYearOfPurchase() {
+//		return yearOfPurchase;
+//	}
+//
+//	public void setYearOfPurchase(Date yearOfPurchase) {
+//		this.yearOfPurchase = yearOfPurchase;
+//	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
     // Constructor, getters and setters

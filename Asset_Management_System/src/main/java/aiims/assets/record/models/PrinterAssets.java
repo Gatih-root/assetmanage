@@ -18,15 +18,37 @@ import lombok.Setter;
 public class PrinterAssets {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+	private  long id;
 
     @Column(nullable = true)
     private String printer_name;
+    
+    
+    @Column(nullable = true)
+    private String username;
 
     @Column(nullable = true)
     private String type;
+   
+    public String getFloorNo() {
+		return floorNo;
+	}
 
+	public void setFloorNo(String floorNo) {
+		this.floorNo = floorNo;
+	}
+
+	public String getRoom() {
+		return room;
+	}
+
+	public void setRoom(String room) {
+		this.room = room;
+	}
+
+	private String floorNo;
+    private String room;
     @Column(nullable = true)
     private String department;
 
@@ -42,11 +64,12 @@ public class PrinterAssets {
     @Column(nullable = true)
     private String ipAddress;
 
-	public Long getId() {
+	
+	public long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -104,6 +127,14 @@ public class PrinterAssets {
 
 	public void setIpAddress(String ipAddress) {
 		this.ipAddress = ipAddress;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
     
     

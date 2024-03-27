@@ -8,6 +8,7 @@ import aiims.assets.record.models.PrinterAssets;
 import aiims.assets.record.repositories.PrinterAssetsRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PrinterAssetsService {
@@ -46,6 +47,17 @@ public class PrinterAssetsService {
         }
         printerAssetsRepository.deleteById(id);
     }
+
+    public PrinterAssets getAssetByIdAndDepartment(Long id, String department) {
+        Optional<PrinterAssets> optionalAsset = printerAssetsRepository.findByDepartmentAndId(department, id);
+        return optionalAsset.orElseThrow(() -> new NotFoundException("Printer Asset not found with id: " + id + " and department: " + department));
+    }
+
+    public List<PrinterAssets> getAllAssetsByDepartment(String department) {
+        return printerAssetsRepository.findByDepartment(department);
+    }
+	
+	
 
 	
 }

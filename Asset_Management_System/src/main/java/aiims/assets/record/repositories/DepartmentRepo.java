@@ -9,4 +9,13 @@ import aiims.assets.record.models.Departments;
 public interface DepartmentRepo extends JpaRepository<Departments,Long>{
 	public Optional<Departments> findByDepartment(String department);
 
+	public Departments getDepartmentById(Long id);
+
+	//public void deleteDepartment(Long id);
+
+
+
+	
+	
+
 }

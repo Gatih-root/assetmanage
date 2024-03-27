@@ -3,14 +3,16 @@ package aiims.assets.record.config;
 import java.util.Arrays;
 import java.util.Collection;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import aiims.assets.record.models.Employe;
+import aiims.assets.record.services.FailedAttempt;
 
 public class CustomUser implements UserDetails {
-
+	
 	private Employe employe;
 
 	public CustomUser(Employe employe) {
@@ -33,7 +35,7 @@ public class CustomUser implements UserDetails {
 
 	@Override
 	public String getUsername() {
-		return employe.getEmail();
+		return employe.getUserid();
 	}
 
 	@Override
@@ -55,5 +57,7 @@ public class CustomUser implements UserDetails {
 	public boolean isEnabled() {
 		return true;
 	}
+	
+	
 
 }

@@ -15,12 +15,16 @@ public class DepartmentService {
 	private DepartmentRepo departmentRepo;
 
 
-    public List<Departments> findAll() {
-        return departmentRepo.findAll();
-    }
+    public List<Departments> findAll() {  
+    	return departmentRepo.findAll();
+   }
 
     public Departments findById(Long id) {
         return departmentRepo.findById(id).orElse(null);
+    }
+    
+    public Departments getDepartmentById(Long id) {
+    	return departmentRepo.findById(id).orElse(null);
     }
 
     public Departments save(Departments department) {
@@ -30,6 +34,13 @@ public class DepartmentService {
     public void deleteById(Long id) {
         departmentRepo.deleteById(id);
     }
+
+	public void deleteDepartment(Long id) {
+		
+		departmentRepo.deleteById(id);
+	}
+
+	
 
 //	public Departments save(Departments department) {
 //		// TODO Auto-generated method stub

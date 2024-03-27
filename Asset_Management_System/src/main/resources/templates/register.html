@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
 	th:replace="base::layout(~{::section})">
+
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
+
 <body>
 	<section>
 		<div class="container p-3">
@@ -23,23 +25,36 @@
 						<div class="card-body">
 							<form action="saveUser" method="post">
 								<div class="mb-3">
-									<label>Enter Full Name</label> <input type="text" name="name"
-										class="form-control">
+									<label>Enter FullName</label> <input type="text"
+										name="username" class="form-control" required>
 								</div>
 								<div class="mb-3">
 									<label>Enter Email</label> <input type="text" name="email"
-										class="form-control">
+										class="form-control" required>
+								</div>
+								<div class="mb-3">
+									<label>Mobile no</label> <input type="number" name="mobileNo"
+										class="form-control" required>
 								</div>
 
 								<div class="mb-3">
-									<label>userId</label> <input type="text"
-										name="userid" class="form-control">
+									<label>userId</label> <input type="text" name="userid"
+										class="form-control" required>
 								</div>
 
 								<div class="mb-3">
-									<label>Enter Password</label> <input type="text"
-										name="password" class="form-control">
+									<label>department</label> <select class="form-control"
+										id="department" name="department">
+										<option value="select">Select Department</option>
+										<option th:each="dept : ${departments}"
+											th:value="${dept.department}" th:text="${dept.department}"></option>
+									</select>
 								</div>
+
+								<!--									<label>Enter Password</label> <input type="password"-->
+								<!--										name="password" class="form-control">-->
+								<!--								</div>-->
+
 								<button class="btn btn-primary col-md-12">Register</button>
 							</form>
 						</div>
@@ -55,4 +70,5 @@
 
 	</section>
 </body>
+
 </html>

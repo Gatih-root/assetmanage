@@ -11,12 +11,15 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 
+
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
 
 	@Autowired
 	public CustomAuthSucessHandler sucessHandler;
+	
 	
 	@Bean
 	public BCryptPasswordEncoder passwordEncoder() {
@@ -58,5 +61,7 @@ public class SecurityConfig {
 		
 		return http.build();
 	}
+	
+	
 
 }

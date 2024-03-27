@@ -18,110 +18,49 @@ import lombok.Setter;
 public class ComputerAsset {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+	private  long id;
 
-    @Column(nullable = true)
+    
     private String type;
-
-    @Column(nullable = true)
     private String department;
-
-    @Column(nullable = true)
     private String floorNo;
-
-    @Column(nullable = true)
     private String room;
-
-    @Column(nullable = true)
     private String makeModelSerialNoValue;
-
-    @Column(nullable = true)
     private String serialNumber;
-
-    @Column(nullable = true)
     private String computer_name;
-
-    @Column(nullable = true)
     private String cpu_generation;
-
-    @Column(nullable = true)
     private String cpu_type;
-
-    @Column(nullable = true)
     private String cpu_ram;
-
-    @Column(nullable = true)
     private String os;
-
-    @Column(nullable = true)
     private String os_activated;
-
-    @Column(nullable = true)
     private String aiimsLAN;
-
-    @Column(nullable = true)
     private String deviceConnected;
-
-    @Column(nullable = true)
     private String connectedDevicesDesc;
-
-    @Column(nullable = true)
     private String endPointIp;
-
-    @Column(nullable = true)
     private String edrInstalled;
-
-    @Column(nullable = true)
     private String edr;
-
-    @Column(nullable = true)
     private String edrOther;
-
-    @Column(nullable = true)
     private String usbAllowed;
-
-    @Column(nullable = true)
     private String usbModel;
-
-    @Column(nullable = true)
     private String usbSerailNo;
-
-    @Column(nullable = true)
     private String nacInstalled;
-
-    @Column(nullable = true)
     private String mayaInstalled;
-
-    @Column(nullable = true)
     private String mayaRevokedReason;
-
-    @Column(nullable = true)
     private String mac;
-
-    @Column(nullable = true)
     private String username;
-
-    @Column(nullable = true)
     private String mtnlConnection;
-
-    @Column(nullable = true)
     private String mtnlConnectionDesc;
-
-    @Column(nullable = true)
     private String ciiApplication;
-
-    @Column(nullable = true)
     private String aiimsInternet;
-
-    @Column(nullable = true)
     private String eofficeAccess;
+    
 
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
